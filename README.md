@@ -38,7 +38,7 @@ trabalhoJAVA/
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/seu-usuario/Cadastro-e-busca-de-funcionarios.git
+   git clone https://github.com/carlosch77/Cadastro-e-busca-de-funcionarios.git
    cd "Cadastro e busca de funcionarios"
 
 2. Compile e execute o projeto no seu IDE preferido (como IntelliJ ou Eclipse), ou pelo terminal:
