@@ -13,7 +13,7 @@ public class Gerente extends Funcionario {
     @Override
     protected  double calcularSalario() {
         // Calcula o salário final somando o salário base ao bônus
-        salario_base = salario_base + bonus;
-        return salario_base;
+        double salarioinss = super.calculoinss();
+        return salarioinss + bonus;
     }
 }

@@ -10,13 +10,16 @@ public class Vendedor extends Funcionario {
 
     public Vendedor(String nome, double salario_base, String cargo, int id_funcionario, double comissao, double vendas) {
         super(nome, cargo, salario_base, id_funcionario);
+        this.percentual_comissao = comissao;
+        this.vendas_mensais = vendas;
     }
 
     // Sobrescreve o método calcularSalario da classe 'funcionario'
     @Override
     protected double calcularSalario() {
         // Calcula o salário total como salário base + comissão sobre as vendas
-        salario_base = salario_base + (vendas_mensais * percentual_comissao / 100);
-        return salario_base;
+        double salarioinss = super.calculoinss();
+        double adicional = (vendas_mensais * percentual_comissao / 100);
+        return salarioinss + adicional;
     }
 }

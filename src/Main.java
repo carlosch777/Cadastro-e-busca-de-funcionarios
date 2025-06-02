@@ -118,7 +118,7 @@ public class Main extends JFrame {
                     double bonus = Double.parseDouble(bonusField.getText());
                     Gerente ger = new Gerente(nome, salario, cargo, id, bonus);
                     listapessoas.add(ger);
-                    exibirFuncionario(ger);
+                    exibirgerente(ger);
                     nomeField.setText("");
                     salarioField.setText("");
                     bonusField.setText("");
@@ -128,7 +128,7 @@ public class Main extends JFrame {
                     double vendas = Double.parseDouble(vendasField.getText());
                     Vendedor vend = new Vendedor(nome, salario, cargo, id, comissao, vendas);
                     listapessoas.add(vend);
-                    exibirFuncionario(vend);
+                    exibirvendedor(vend);
                     comissaoField.setText("");
                     vendasField.setText("");
                     nomeField.setText("");
@@ -138,7 +138,7 @@ public class Main extends JFrame {
                     int produtos = Integer.parseInt(produtosField.getText());
                     Operador op = new Operador(nome, salario, cargo, id, produtos);
                     listapessoas.add(op);
-                    exibirFuncionario(op);
+                    exibiroperador(op);
                     produtosField.setText("");
                     nomeField.setText("");
                     salarioField.setText("");
@@ -148,7 +148,7 @@ public class Main extends JFrame {
                     double valor = Double.parseDouble(valorField.getText());
                     Estagiario est = new Estagiario(nome, salario, cargo, id, horas, valor);
                     listapessoas.add(est);
-                    exibirFuncionario(est);
+                    exibirestagiario(est);
                     horasField.setText("");
                     valorField.setText("");
                     nomeField.setText("");
@@ -175,14 +175,46 @@ public class Main extends JFrame {
 
         setVisible(true);
     }
-
-    private void exibirFuncionario(Funcionario f) {
-        listapessoasarea.append("Nome: " + f.nome + "\n");
-        listapessoasarea.append("ID: " + f.id_funcionario + "\n");
-        listapessoasarea.append("Cargo: " + f.cargo + "\n");
-        listapessoasarea.append("Salário Base: R$" + f.salario_base + "\n");
-        listapessoasarea.append("Salário com INSS: R$" + f.calculoinss() + "\n");
-        listapessoasarea.append("Salário Total: R$" + f.calcularSalario() + "\n");
+    private void exibirestagiario(Estagiario e) {
+        listapessoasarea.append("Nome: " + e.nome + "\n");
+        listapessoasarea.append("ID: " + e.id_funcionario + "\n");
+        listapessoasarea.append("Cargo: " + e.cargo + "\n");
+        listapessoasarea.append("Salário Base: R$" + e.salario_base + "\n");
+        listapessoasarea.append("Horas trabalhadas: " + e.horas_trabalhadas+"\n");
+        listapessoasarea.append("Valor da hora: R$" + e.valor_da_hora + "\n");
+        listapessoasarea.append("Salário Total: R$" + e.calcularSalario() + "\n");
+        listapessoasarea.append("------------------------------\n");
+    }
+    private void exibirgerente(Gerente g) {
+        listapessoasarea.append("Nome: " + g.nome + "\n");
+        listapessoasarea.append("ID: " + g.id_funcionario + "\n");
+        listapessoasarea.append("Cargo: " + g.cargo + "\n");
+        listapessoasarea.append("Salário Base: R$" + g.salario_base + "\n");
+        listapessoasarea.append("Salário com INSS: R$" + g.calculoinss() + "\n");
+        listapessoasarea.append("Bônus: R$"+g.bonus+"\n");
+        listapessoasarea.append("Salário Total: R$" + g.calcularSalario() + "\n");
+        listapessoasarea.append("------------------------------\n");
+    }
+    private void exibiroperador(Operador o) {
+        listapessoasarea.append("Nome: " + o.nome + "\n");
+        listapessoasarea.append("ID: " + o.id_funcionario + "\n");
+        listapessoasarea.append("Cargo: " + o.cargo + "\n");
+        listapessoasarea.append("Salário Base: R$" + o.salario_base + "\n");
+        listapessoasarea.append("Salário com INSS: R$" + o.calculoinss() + "\n");
+        listapessoasarea.append("Produtos produzidos: "+o.produtos_produzidos+"\n");
+        listapessoasarea.append("Valor por produto: R$2 \n");
+        listapessoasarea.append("Salário Total: R$" + o.calcularSalario() + "\n");
+        listapessoasarea.append("------------------------------\n");
+    }
+    private void exibirvendedor(Vendedor v) {
+        listapessoasarea.append("Nome: " + v.nome + "\n");
+        listapessoasarea.append("ID: " + v.id_funcionario + "\n");
+        listapessoasarea.append("Cargo: " + v.cargo + "\n");
+        listapessoasarea.append("Salário Base: R$" + v.salario_base + "\n");
+        listapessoasarea.append("Salário com INSS: R$" + v.calculoinss() + "\n");
+        listapessoasarea.append("Comissão: "+v.percentual_comissao+"% \n");
+        listapessoasarea.append("Vendas no mês: R$"+v.vendas_mensais+"\n");
+        listapessoasarea.append("Salário Total: R$" + v.calcularSalario() + "\n");
         listapessoasarea.append("------------------------------\n");
     }
 

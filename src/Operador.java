@@ -5,14 +5,17 @@ public class Operador extends Funcionario {
 
     // Construtor que inicializa nome, cargo, salário base e a quantidade de produtos produzidos
 
-    public Operador(String nome, double salario_base, String cargo, int id_funcionario, int produtos) {
+    public Operador(String nome, double salario_base, String cargo, int id_funcionario, int produtos_produzidos) {
         super(nome, cargo, salario_base, id_funcionario);
+        this.produtos_produzidos = produtos_produzidos;
     }
 
     // Sobrescrita do método calcularSalario
     @Override
     protected double calcularSalario() {
         // Calcula o salário base + bônus por produto produzido (exemplo: R$2 por produto)
-        return salario_base + produtos_produzidos * 2;
+        double salarioinss = super.calculoinss();
+        int adicional = produtos_produzidos * 2;
+        return salarioinss + adicional;
     }
 }

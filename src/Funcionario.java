@@ -22,28 +22,29 @@ public class Funcionario {
 
     // Método protegido que calcula o desconto do INSS com base no salário base
     protected  double calculoinss() {
+        double desconto = 0;
         // Faixa de desconto de 7.5% para salários até R$ 1518
         if (salario_base <= 1518) {
-            salario_base = salario_base - (salario_base * 7.5 / 100);
+            desconto = salario_base * 7.5 / 100;
 
             // Faixa de desconto de 9% para salários entre R$ 1518,01 e R$ 2793,99
         } else if (salario_base > 1518 && salario_base < 2794) {
-            salario_base = salario_base - (salario_base * 9 / 100);
+            desconto = salario_base * 9 / 100;
 
             // Faixa de desconto de 12% para salários entre R$ 2794 e R$ 4189,99
         } else if (salario_base > 2794 && salario_base < 4190 ) {
-            salario_base = salario_base - (salario_base * 12 / 100);
+            desconto = salario_base * 12 / 100;
 
             // Faixa de desconto de 14% para salários entre R$ 4190 e R$ 8156,99
         } else if (salario_base > 4190 && salario_base < 8157) {
-            salario_base = salario_base - (salario_base * 14 / 100);
+            desconto = salario_base * 14 / 100;
 
             // Desconto fixo de R$ 951 para salários acima de R$ 8157
         } else if (salario_base > 8157) {
-            salario_base = salario_base - 951;
+            desconto = 951;
         }
 
         // Retorna o salário com o desconto do INSS já aplicado
-        return salario_base;
+        return salario_base - desconto;
     }
 }
