@@ -163,12 +163,17 @@ public class Main extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 int id = Integer.parseInt(idField.getText());
+                boolean encontrado = false;
+
                 for (Funcionario f : listapessoas) {
                     if (f.id_funcionario == id) {
                         JOptionPane.showMessageDialog(null, "Nome: "+f.nome + "\nCargo: " + f.cargo + "\nID: "+f.id_funcionario);
-                    }else{
-                        JOptionPane.showMessageDialog(null, "Funcionário não encontrado");
+                        encontrado = true;
+                        break;
                     }
+                }
+                if (!encontrado) {
+                    JOptionPane.showMessageDialog(null, "Funcionário não encontrado");
                 }
             }
         });
